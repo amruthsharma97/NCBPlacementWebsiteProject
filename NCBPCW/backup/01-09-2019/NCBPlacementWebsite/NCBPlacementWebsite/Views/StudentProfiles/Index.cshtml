@@ -1,0 +1,136 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+
+@model IPagedList<NCBPlacementWebsite.Models.StudentProfile>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Download Excel File", "CreateExcel")
+</p>
+<div>
+    @using (Html.BeginForm("Index", "StudentProfiles", FormMethod.Get))
+    {
+        <div class="row" >
+            <div class="col-lg-6" >
+               
+            </div>
+            
+            <div class="form-group col-lg-6">
+                
+                <h4>@Html.Label("Filter By Branch:", new { @class = "col-lg-4 text-primary ",@style="padding-top:7px" })</h4>
+                @Html.DropDownList("branch", new SelectList(ViewBag.Branches, "Value", "Text"), new { @class = "form-control  col-lg-7" })
+                <div class=" col-lg-1">
+                    <input type="submit" value="Filter" class="btn btn-primary" />
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().URNo)
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().EmailId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().DOB)
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Country)
+        </th>
+        <th>@Html.DisplayNameFor(model => model.First().Status)</th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.URNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FName)
+
+                @Html.DisplayFor(modelItem => item.MName)
+
+                @Html.DisplayFor(modelItem => item.LName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailId)
+            </td>
+            <td>
+                @Html.ValueFor(modelItem => item.DOB, "{0:dd/MM/yyyy}")
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddrLine1),
+
+                @Html.DisplayFor(modelItem => item.AddrLine2),
+
+                @Html.DisplayFor(modelItem => item.City) -
+
+                @Html.DisplayFor(modelItem => item.PostalCode)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @if (item.Status == 1)
+    {
+        <p>Not Approved!!</p>
+    }
+    else if (item.Status == 2)
+    {
+        <p>"Data Modified, Yet To Approve!!!"</p>
+
+    }
+    else if (item.Status == 3)
+    {
+        <p>"Data Not Matched, Update Profile!!!"</p>
+    }
+    else if (item.Status == 4)
+    {
+        <p>"Approved!!"</p>
+    }
+            </td>
+            <td>@Html.ActionLink("Check And Approve", "Approve", new { id = item.Id })</td>
+            <td>
+
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+<div align="right">@Html.PagedListPager(Model, page => Url.Action("Index", new { page, branch = Request.QueryString["branch"] }))</div>

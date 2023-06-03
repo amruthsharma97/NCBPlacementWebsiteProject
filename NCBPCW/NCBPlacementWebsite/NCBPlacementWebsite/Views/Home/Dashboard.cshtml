@@ -1,0 +1,148 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<h2 class="text-primary text-center" >Administrator Dashboard</h2>
+<hr />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2" >
+
+            <ul class=" nav nav-stacked" style="border-right: 2px solid #33DCFF" role="tablist">
+                <li class="nav-item" style="border-bottom: 2px solid #33DCFF"><a class="nav-link active" href="#addUserTab" data-toggle="tab">Users</a></li>
+                <li class="nav-item" style="border-bottom: 2px solid #33DCFF"><a class="nav-link" href="#studentTab" data-toggle="tab">Student Profiles</a></li>
+                <li class="nav-item" style="border-bottom: 2px solid #33DCFF"><a class="nav-link" href="#coursesTab" data-toggle="tab">Courses</a></li>
+                <li class="nav-item" style="border-bottom: 2px solid #33DCFF"><a class="nav-link" href="#departmentsTab" data-toggle="tab">Departments</a></li>
+                <li class="nav-item" style="border-bottom: 2px solid #33DCFF"><a class="nav-link" href="#subjectsTab" data-toggle="tab">Subjects</a></li>
+                <li class="nav-item" style="border-bottom: 2px solid #33DCFF"><a class="nav-link" href="#lecturersTab" data-toggle="tab">Lecturers</a></li>
+                <li class="nav-item" style="border-bottom: 2px solid #33DCFF"><a class="nav-link" href="#appfeedTab" data-toggle="tab">Appraisal Feedback</a></li>
+                <li class="nav-item" style="border-bottom: 2px solid #33DCFF"><a class="nav-link" href="#currfeedTab" data-toggle="tab">Curriculum Feedback</a></li>
+            </ul>
+
+
+
+
+
+
+        </div>
+        <div class="tab-content col-md-10" >
+            <div id="addUserTab" class="tab-pane fade in active">
+                <h3 >Add Or Remove Users</h3>
+                <hr />
+                <div class="col-md-6">
+                    @Html.ActionLink("Add Admin Users", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+                </div>
+                <div class="col-md-6">
+                    @Html.ActionLink("Remove User", "RemoveUser", "Account")
+                </div>
+
+                
+                
+                
+            </div>
+            <div id="studentTab" class="tab-pane fade in">
+                <h3>Student Profiles</h3>
+                <hr />
+                @Html.ActionLink("Student Profiles Home", "Index", "StudentProfiles")
+            </div>
+
+            <div id="coursesTab" class="tab-pane fade in">
+                <h3>Courses</h3>
+                <hr />
+                
+                <div class="col-md-6">
+                    @Html.ActionLink("Courses Home", "Index", "Courses")
+                </div>
+                <div class="col-md-6">
+                    @Html.ActionLink(" Add Courses", "Create", "Courses")
+                </div>
+            
+            </div>
+
+            <div id="departmentsTab" class="tab-pane fade in">
+                <h3>Departments</h3>
+                <hr />
+
+                <div class="col-md-6">
+                    @Html.ActionLink("Department Home", "Index", "Departments")
+                </div>
+                <div class="col-md-6">
+                    @Html.ActionLink("Add Department", "Create", "Departments")
+                </div>
+
+            </div>
+
+            <div id="subjectsTab" class="tab-pane fade in">
+                <h3>Subjects</h3>
+                <hr />
+
+                <div class="col-md-6">
+                    @Html.ActionLink("Subjects Home", "Index", "Subjects")
+                </div>
+                <div class="col-md-6">
+                    @Html.ActionLink("Add Subject", "Create", "Subjects")
+                </div>
+
+            </div>
+
+
+            <div id="lecturersTab" class="tab-pane fade in">
+                <h3>Lecturers</h3>
+                <hr />
+
+                <div class="col-md-6">
+                    @Html.ActionLink("Lecturers Home", "Index", "Lecturers")
+                </div>
+                <div class="col-md-6">
+                    @Html.ActionLink("Add Lecturer", "Create", "Lecturers")
+                </div>
+
+            </div>
+
+            <div id="appfeedTab" class="tab-pane fade in">
+                <h3>Appraisal Feedback</h3>
+                <hr />
+
+                <div >
+                    @Html.ActionLink("Generate Report By Departments", "AppraisalReportByDepartment", "AppraisalFeedback")
+                </div>
+                <div >
+                    @Html.ActionLink("Generate Report By Lecturers", "AppraisalReportByLecturer", "AppraisalFeedback")
+                </div>
+                <div>
+                    @Html.ActionLink("Remove Feedback", "RemoveAppraisalFeedback", "AppraisalFeedback")
+                </div>
+            </div>
+
+            <div id="currfeedTab" class="tab-pane fade in">
+                <h3>Curriculum Feedback</h3>
+                <hr />
+
+                <div>
+                    @Html.ActionLink("Generate Report By Courses", "CurriculumReportByCourse", "CurriculumFeedback")
+                </div>
+                <div>
+                    @Html.ActionLink("Generate Report By Subjects", "CurriculumReportBySubject", "CurriculumFeedback")
+                </div>
+                <div>
+                    @Html.ActionLink("Remove Feedback", "RemoveCurriculumFeedback", "CurriculumFeedback")
+                </div>
+            </div>
+
+            </div>
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+

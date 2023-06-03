@@ -1,0 +1,256 @@
+﻿@model NCBPlacementWebsite.Models.StudentProfile
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div style="font-size:larger">
+    <h2 class="text-primary">My Profile</h2>
+    <hr />
+    <table class="table-bordered" align="center">
+        <tr>
+            <td class="text-center text-primary" style="padding: 10px;" colspan="4"><h3>Personal Details</h3></td>
+        </tr>
+        <tr>
+            <td class="text-center text-primary" style="padding: 20px;">
+                @Html.DisplayNameFor(model => model.URNo)
+            </td>
+            <td class="text-center" colspan="3" style="padding: 20px;">
+                @Html.DisplayFor(model => model.URNo)
+            </td>
+        </tr>
+        <tr>
+            <td class="text-center text-primary" style="padding: 20px;">
+                Full Name
+            </td>
+            <td class="text-center" style="padding: 20px;">
+                @Html.DisplayFor(model => model.FName)
+            </td>
+            <td class="text-center" style="padding: 20px;">@Html.DisplayFor(model => model.MName)</td>
+            <td class="text-center" style="padding: 20px;">@Html.DisplayFor(model => model.LName)</td>
+        </tr>
+        <tr>
+            <td class="text-center text-primary" style="padding: 20px;">
+                @Html.DisplayNameFor(model => model.MNumber)
+            </td>
+            <td class="text-center" colspan="3" style="padding: 20px;">
+                @Html.DisplayFor(model => model.MNumber)
+            </td>
+        </tr>
+        <tr>
+            <td class="text-center text-primary" style="padding: 20px;">
+                @Html.DisplayNameFor(model => model.EmailId)
+            </td>
+            <td class="text-center" colspan="3" style="padding: 20px;">
+                @Html.DisplayFor(model => model.EmailId)
+            </td>
+        </tr>
+
+        <tr>
+            <td class="text-center text-primary" style="padding: 20px;">
+                @Html.DisplayNameFor(model => model.DOB)
+            </td>
+            <td class="text-center" colspan="3" style="padding: 20px;">
+                @Html.DisplayFor(model => model.DOB)
+            </td>
+        </tr>
+        <tr>
+            <td class="text-center text-primary" style="padding: 20px;">
+                Address
+            </td>
+            <td class="text-center" colspan="3" style="padding: 20px;">
+                @Html.DisplayFor(model => model.AddrLine1), @Html.DisplayFor(model => model.AddrLine2),
+                @Html.DisplayFor(model => model.City) - @Html.DisplayFor(model => model.PostalCode)
+            </td>
+        </tr>
+        <tr>
+            <td class="text-center text-primary" style="padding: 20px;">
+                @Html.DisplayNameFor(model => model.State)
+            </td>
+            <td class="text-center" colspan="3" style="padding: 20px;">
+                @Html.DisplayFor(model => model.State)
+            </td>
+        </tr>
+        <tr>
+            <td class="text-center text-primary" style="padding: 20px;">
+                @Html.DisplayNameFor(model => model.Country)
+            </td>
+            <td class="text-center" colspan="3" style="padding: 20px;">
+                @Html.DisplayFor(model => model.Country)
+            </td>
+        </tr>
+        <tr>
+            <td class="text-center text-primary" style="padding: 10px;" colspan="4"><h3>SSLC Or 10th Details</h3></td>
+        </tr>
+        <tr>
+            <td class="text-center text-primary" style="padding: 20px;">
+                @Html.DisplayNameFor(model => model.SSLCPercentage)
+            </td>
+            <td class="text-center" colspan="3" style="padding: 20px;">
+                @Html.DisplayFor(model => model.SSLCPercentage)%
+            </td>
+        </tr>
+
+        <tr>
+            <td class="text-center text-primary" style="padding: 20px;">
+                @Html.DisplayNameFor(model => model.SSLCBoard)
+            </td>
+            <td class="text-center" colspan="3" style="padding: 20px;">
+                @Html.DisplayFor(model => model.SSLCBoard)
+            </td>
+        </tr>
+        <tr>
+            <td class="text-center text-primary" style="padding: 20px;">
+                @Html.DisplayNameFor(model => model.NameOfSchool)
+            </td>
+            <td class="text-center" colspan="3" style="padding: 20px;">
+                @Html.DisplayFor(model => model.NameOfSchool)
+            </td>
+        </tr>
+
+        <tr>
+            <td class="text-center text-primary" style="padding: 20px;">
+                @Html.DisplayNameFor(model => model.SSLCPassingState)
+            </td>
+            <td class="text-center" colspan="3" style="padding: 20px;">
+                @Html.DisplayFor(model => model.SSLCPassingState)
+            </td>
+        </tr>
+
+        <tr>
+            <td class="text-center text-primary" style="padding: 20px;">
+                @Html.DisplayNameFor(model => model.SSLCPassingCOuntry)
+            </td>
+            <td class="text-center" colspan="3" style="padding: 20px;">
+                @Html.DisplayFor(model => model.SSLCPassingCOuntry)
+            </td>
+        </tr>
+
+        <tr>
+            <td class="text-center text-primary" style="padding: 20px;">
+                @Html.DisplayNameFor(model => model.SSLCYOP)
+            </td>
+            <td class="text-center" colspan="3" style="padding: 20px;">
+                @Html.DisplayFor(model => model.SSLCYOP)
+            </td>
+        </tr>
+
+        <tr>
+            <td class="text-center text-primary" style="padding: 10px;" colspan="4"><h3>PUC Or 12th Details</h3></td>
+        </tr>
+        <tr>
+            <td class="text-center text-primary" style="padding: 20px;">
+                @Html.DisplayNameFor(model => model.PUCPercentage)
+            </td>
+            <td class="text-center" colspan="3" style="padding: 20px;">
+                @Html.DisplayFor(model => model.PUCPercentage)%
+            </td>
+        </tr>
+
+        <tr>
+            <td class="text-center text-primary" style="padding: 20px;">
+                @Html.DisplayNameFor(model => model.PUCBoard)
+            </td>
+            <td class="text-center" colspan="3" style="padding: 20px;">
+                @Html.DisplayFor(model => model.PUCBoard)
+            </td>
+        </tr>
+        <tr>
+            <td class="text-center text-primary" style="padding: 20px;">
+                @Html.DisplayNameFor(model => model.NameOfClg)
+            </td>
+            <td class="text-center" colspan="3" style="padding: 20px;">
+                @Html.DisplayFor(model => model.NameOfClg)
+            </td>
+        </tr>
+
+        <tr>
+            <td class="text-center text-primary" style="padding: 20px;">
+                @Html.DisplayNameFor(model => model.PUCPassingState)
+            </td>
+            <td class="text-center" colspan="3" style="padding: 20px;">
+                @Html.DisplayFor(model => model.PUCPassingState)
+            </td>
+        </tr>
+
+        <tr>
+            <td class="text-center text-primary" style="padding: 20px;">
+                @Html.DisplayNameFor(model => model.PUCPassingCOuntry)
+            </td>
+            <td class="text-center" colspan="3" style="padding: 20px;">
+                @Html.DisplayFor(model => model.PUCPassingCOuntry)
+            </td>
+        </tr>
+
+        <tr>
+            <td class="text-center text-primary" style="padding: 20px;">
+                @Html.DisplayNameFor(model => model.PUCYOP)
+            </td>
+            <td class="text-center" colspan="3" style="padding: 20px;">
+                @Html.DisplayFor(model => model.PUCYOP)
+            </td>
+        </tr>
+        <tr>
+            <td class="text-center text-primary" style="padding: 10px;" colspan="4"><h3>Degree Details</h3></td>
+        </tr>
+        <tr>
+            <td class="text-center text-primary" style="padding: 20px;">
+                @Html.DisplayNameFor(model => model.DegreePercentage)
+            </td>
+            <td class="text-center" colspan="3" style="padding: 20px;">
+                @Html.DisplayFor(model => model.DegreePercentage)%
+            </td>
+        </tr>
+
+        <tr>
+            <td class="text-center text-primary" style="padding: 20px;">
+                @Html.DisplayNameFor(model => model.Branch)
+            </td>
+            <td class="text-center" colspan="3" style="padding: 20px;">
+                @Html.DisplayFor(model => model.Branch)
+            </td>
+        </tr>
+
+        <tr>
+            <td class="text-center text-primary" style="padding: 20px;">
+                @Html.DisplayNameFor(model => model.DegreeYOP)
+            </td>
+            <td class="text-center" colspan="3" style="padding: 20px;">
+                @Html.DisplayFor(model => model.DegreeYOP)
+            </td>
+        </tr>
+        <tr>
+            <td class="text-center text-primary" style="padding: 20px;">
+                @Html.DisplayNameFor(model => model.Status)
+            </td>
+            <td class="text-center" colspan="3" style="padding: 20px;">
+                @{
+                    if (Model.Status == 0)
+                    {
+                        <p>Not Approved!!</p>
+                    }
+                    else if (Model.Status == 1)
+                    {
+                        <p>"Approved!!"</p>
+                    }
+                    else if (Model.Status == 2)
+                    {
+                        <p>"Data Not Matched, Update Profile!!!"</p>
+                    }
+                    else if (Model.Status == 3)
+                    {
+                        <p>"Data Modified, Yet To Approve!!!"</p>
+                    }
+
+}
+            </td>
+        </tr>
+
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

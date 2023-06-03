@@ -1,0 +1,1378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="NCBPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AppraisalFeedback">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuestionId" Type="int" Nullable="false" />
+          <Property Name="LecturerId" Type="int" Nullable="false" />
+          <Property Name="Feedback" Type="int" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AppraisalQuestionnaire">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Order" Type="int" Nullable="false" />
+          <Property Name="Question" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StateId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CurriculumFeedback">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuestionId" Type="int" Nullable="false" />
+          <Property Name="SubjectId" Type="int" Nullable="false" />
+          <Property Name="Feedback" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CurriculumQuestionnaire">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Order" Type="int" Nullable="false" />
+          <Property Name="Question" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Entitlements">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="PermissionId" Type="int" Nullable="false" />
+          <Property Name="StaffId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lecturer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="DepartmentId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Permissions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PreviousExamInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PreviousCourseName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PreviousInstitution" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MonthAndYearOfPassing" Type="datetime" Nullable="false" />
+          <Property Name="Result" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StateId" Type="int" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Semester">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SemesterNo" Type="int" Nullable="false" />
+          <Property Name="Result" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Staffs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RollNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="Qualification" Type="nvarchar" MaxLength="50" />
+          <Property Name="Designation" Type="nvarchar" MaxLength="30" />
+          <Property Name="Experiance" Type="varchar" MaxLength="10" />
+          <Property Name="DateOfBirth" Type="datetime" />
+          <Property Name="DateOfJoin" Type="datetime" />
+          <Property Name="Department" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudentProfiles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Aadnum" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="URNo" Type="nvarchar" MaxLength="10" />
+          <Property Name="FName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="MName" Type="nvarchar" MaxLength="20" />
+          <Property Name="LName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DOB" Type="datetime" Nullable="false" />
+          <Property Name="MNumber" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Passcode" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="EnroledYear" Type="int" Nullable="false" />
+          <Property Name="ExpectedYOP" Type="int" Nullable="false" />
+          <Property Name="AddrLine1" Type="nvarchar" MaxLength="80" />
+          <Property Name="AddrLine2" Type="nvarchar" MaxLength="80" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="6" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ApprovedDate" Type="datetime" />
+          <Property Name="ApprovedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CourseId" Type="int" Nullable="false" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="StateId" Type="int" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CourseId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Passcode" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="IsFirstLogin" Type="bit" Nullable="false" />
+          <Property Name="IsAdmin" Type="bit" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="StaffId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AppraisalQuestionnairFeedback">
+          <End Role="AppraisalQuestionnaire" Type="Self.AppraisalQuestionnaire" Multiplicity="1" />
+          <End Role="AppraisalFeedback" Type="Self.AppraisalFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppraisalQuestionnaire">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AppraisalFeedback">
+              <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CityStudentProfiles">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="StudentProfiles" Type="Self.StudentProfiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentProfiles">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CountryPreviousExamInfo">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="PreviousExamInfo" Type="Self.PreviousExamInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PreviousExamInfo">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CountryState">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="State" Type="Self.State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="State">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CountryStudentProfiles">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="StudentProfiles" Type="Self.StudentProfiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentProfiles">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseStudentProfiles">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="StudentProfiles" Type="Self.StudentProfiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentProfiles">
+              <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseSubject">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="Subject" Type="Self.Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subject">
+              <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurriculumQuestionnairFeedback">
+          <End Role="CurriculumQuestionnaire" Type="Self.CurriculumQuestionnaire" Multiplicity="1" />
+          <End Role="CurriculumFeedback" Type="Self.CurriculumFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CurriculumQuestionnaire">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurriculumFeedback">
+              <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DepartmentLecturer">
+          <End Role="Department" Type="Self.Department" Multiplicity="1" />
+          <End Role="Lecturer" Type="Self.Lecturer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Lecturer">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LecturerAppraisalFeedback">
+          <End Role="Lecturer" Type="Self.Lecturer" Multiplicity="1" />
+          <End Role="AppraisalFeedback" Type="Self.AppraisalFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lecturer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AppraisalFeedback">
+              <PropertyRef Name="LecturerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PermissionEntitlement">
+          <End Role="Permissions" Type="Self.Permissions" Multiplicity="1" />
+          <End Role="Entitlements" Type="Self.Entitlements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permissions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Entitlements">
+              <PropertyRef Name="PermissionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffEntitlement">
+          <End Role="Staffs" Type="Self.Staffs" Multiplicity="1" />
+          <End Role="Entitlements" Type="Self.Entitlements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staffs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Entitlements">
+              <PropertyRef Name="StaffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffUser">
+          <End Role="Staffs" Type="Self.Staffs" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staffs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="StaffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateCity">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StatePreviousExamInfo">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="PreviousExamInfo" Type="Self.PreviousExamInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PreviousExamInfo">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateStudentProfiles">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="StudentProfiles" Type="Self.StudentProfiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentProfiles">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentProfilesPreviousExamInfo">
+          <End Role="StudentProfiles" Type="Self.StudentProfiles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PreviousExamInfo" Type="Self.PreviousExamInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentProfiles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PreviousExamInfo">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentProfilesSemester">
+          <End Role="StudentProfiles" Type="Self.StudentProfiles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Semester" Type="Self.Semester" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentProfiles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Semester">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubjectCurriculumFeedback">
+          <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
+          <End Role="CurriculumFeedback" Type="Self.CurriculumFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurriculumFeedback">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NCBPModelStoreContainer">
+          <EntitySet Name="AppraisalFeedback" EntityType="Self.AppraisalFeedback" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AppraisalQuestionnaire" EntityType="Self.AppraisalQuestionnaire" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CurriculumFeedback" EntityType="Self.CurriculumFeedback" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CurriculumQuestionnaire" EntityType="Self.CurriculumQuestionnaire" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Entitlements" EntityType="Self.Entitlements" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lecturer" EntityType="Self.Lecturer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Permissions" EntityType="Self.Permissions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PreviousExamInfo" EntityType="Self.PreviousExamInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Semester" EntityType="Self.Semester" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Staffs" EntityType="Self.Staffs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentProfiles" EntityType="Self.StudentProfiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AppraisalQuestionnairFeedback" Association="Self.FK_AppraisalQuestionnairFeedback">
+            <End Role="AppraisalQuestionnaire" EntitySet="AppraisalQuestionnaire" />
+            <End Role="AppraisalFeedback" EntitySet="AppraisalFeedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CityStudentProfiles" Association="Self.FK_CityStudentProfiles">
+            <End Role="City" EntitySet="City" />
+            <End Role="StudentProfiles" EntitySet="StudentProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CountryPreviousExamInfo" Association="Self.FK_CountryPreviousExamInfo">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="PreviousExamInfo" EntitySet="PreviousExamInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CountryState" Association="Self.FK_CountryState">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="State" EntitySet="State" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CountryStudentProfiles" Association="Self.FK_CountryStudentProfiles">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="StudentProfiles" EntitySet="StudentProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseStudentProfiles" Association="Self.FK_CourseStudentProfiles">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="StudentProfiles" EntitySet="StudentProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseSubject" Association="Self.FK_CourseSubject">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Subject" EntitySet="Subject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurriculumQuestionnairFeedback" Association="Self.FK_CurriculumQuestionnairFeedback">
+            <End Role="CurriculumQuestionnaire" EntitySet="CurriculumQuestionnaire" />
+            <End Role="CurriculumFeedback" EntitySet="CurriculumFeedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DepartmentLecturer" Association="Self.FK_DepartmentLecturer">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Lecturer" EntitySet="Lecturer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LecturerAppraisalFeedback" Association="Self.FK_LecturerAppraisalFeedback">
+            <End Role="Lecturer" EntitySet="Lecturer" />
+            <End Role="AppraisalFeedback" EntitySet="AppraisalFeedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PermissionEntitlement" Association="Self.FK_PermissionEntitlement">
+            <End Role="Permissions" EntitySet="Permissions" />
+            <End Role="Entitlements" EntitySet="Entitlements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffEntitlement" Association="Self.FK_StaffEntitlement">
+            <End Role="Staffs" EntitySet="Staffs" />
+            <End Role="Entitlements" EntitySet="Entitlements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffUser" Association="Self.FK_StaffUser">
+            <End Role="Staffs" EntitySet="Staffs" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateCity" Association="Self.FK_StateCity">
+            <End Role="State" EntitySet="State" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StatePreviousExamInfo" Association="Self.FK_StatePreviousExamInfo">
+            <End Role="State" EntitySet="State" />
+            <End Role="PreviousExamInfo" EntitySet="PreviousExamInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateStudentProfiles" Association="Self.FK_StateStudentProfiles">
+            <End Role="State" EntitySet="State" />
+            <End Role="StudentProfiles" EntitySet="StudentProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentProfilesPreviousExamInfo" Association="Self.FK_StudentProfilesPreviousExamInfo">
+            <End Role="StudentProfiles" EntitySet="StudentProfiles" />
+            <End Role="PreviousExamInfo" EntitySet="PreviousExamInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentProfilesSemester" Association="Self.FK_StudentProfilesSemester">
+            <End Role="StudentProfiles" EntitySet="StudentProfiles" />
+            <End Role="Semester" EntitySet="Semester" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubjectCurriculumFeedback" Association="Self.FK_SubjectCurriculumFeedback">
+            <End Role="Subject" EntitySet="Subject" />
+            <End Role="CurriculumFeedback" EntitySet="CurriculumFeedback" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NCBPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AppraisalFeedback">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionId" Type="Int32" Nullable="false" />
+          <Property Name="LecturerId" Type="Int32" Nullable="false" />
+          <Property Name="Feedback" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AppraisalQuestionnaire" Relationship="Self.FK_AppraisalQuestionnairFeedback" FromRole="AppraisalFeedback" ToRole="AppraisalQuestionnaire" />
+          <NavigationProperty Name="Lecturer" Relationship="Self.FK_LecturerAppraisalFeedback" FromRole="AppraisalFeedback" ToRole="Lecturer" />
+        </EntityType>
+        <EntityType Name="AppraisalQuestionnaire">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Order" Type="Int32" Nullable="false" />
+          <Property Name="Question" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AppraisalFeedbacks" Relationship="Self.FK_AppraisalQuestionnairFeedback" FromRole="AppraisalQuestionnaire" ToRole="AppraisalFeedback" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StateId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="StudentProfiles" Relationship="Self.FK_CityStudentProfiles" FromRole="City" ToRole="StudentProfiles" />
+          <NavigationProperty Name="State" Relationship="Self.FK_StateCity" FromRole="City" ToRole="State" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PreviousExamInfoes" Relationship="Self.FK_CountryPreviousExamInfo" FromRole="Country" ToRole="PreviousExamInfo" />
+          <NavigationProperty Name="States" Relationship="Self.FK_CountryState" FromRole="Country" ToRole="State" />
+          <NavigationProperty Name="StudentProfiles" Relationship="Self.FK_CountryStudentProfiles" FromRole="Country" ToRole="StudentProfiles" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="StudentProfiles" Relationship="Self.FK_CourseStudentProfiles" FromRole="Course" ToRole="StudentProfiles" />
+          <NavigationProperty Name="Subjects" Relationship="Self.FK_CourseSubject" FromRole="Course" ToRole="Subject" />
+        </EntityType>
+        <EntityType Name="CurriculumFeedback">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionId" Type="Int32" Nullable="false" />
+          <Property Name="SubjectId" Type="Int32" Nullable="false" />
+          <Property Name="Feedback" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CurriculumQuestionnaire" Relationship="Self.FK_CurriculumQuestionnairFeedback" FromRole="CurriculumFeedback" ToRole="CurriculumQuestionnaire" />
+          <NavigationProperty Name="Subject" Relationship="Self.FK_SubjectCurriculumFeedback" FromRole="CurriculumFeedback" ToRole="Subject" />
+        </EntityType>
+        <EntityType Name="CurriculumQuestionnaire">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Order" Type="Int32" Nullable="false" />
+          <Property Name="Question" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CurriculumFeedbacks" Relationship="Self.FK_CurriculumQuestionnairFeedback" FromRole="CurriculumQuestionnaire" ToRole="CurriculumFeedback" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Lecturers" Relationship="Self.FK_DepartmentLecturer" FromRole="Department" ToRole="Lecturer" />
+        </EntityType>
+        <EntityType Name="Entitlement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PermissionId" Type="Int32" Nullable="false" />
+          <Property Name="StaffId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Permission" Relationship="Self.FK_PermissionEntitlement" FromRole="Entitlements" ToRole="Permissions" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK_StaffEntitlement" FromRole="Entitlements" ToRole="Staffs" />
+        </EntityType>
+        <EntityType Name="Lecturer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AppraisalFeedbacks" Relationship="Self.FK_LecturerAppraisalFeedback" FromRole="Lecturer" ToRole="AppraisalFeedback" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_DepartmentLecturer" FromRole="Lecturer" ToRole="Department" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Entitlements" Relationship="Self.FK_PermissionEntitlement" FromRole="Permissions" ToRole="Entitlements" />
+        </EntityType>
+        <EntityType Name="PreviousExamInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentId" Type="Guid" Nullable="false" />
+          <Property Name="PreviousCourseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PreviousInstitution" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MonthAndYearOfPassing" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Result" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StateId" Type="Int32" Nullable="false" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_CountryPreviousExamInfo" FromRole="PreviousExamInfo" ToRole="Country" />
+          <NavigationProperty Name="State" Relationship="Self.FK_StatePreviousExamInfo" FromRole="PreviousExamInfo" ToRole="State" />
+          <NavigationProperty Name="StudentProfile" Relationship="Self.FK_StudentProfilesPreviousExamInfo" FromRole="PreviousExamInfo" ToRole="StudentProfiles" />
+        </EntityType>
+        <EntityType Name="Semester">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentId" Type="Guid" Nullable="false" />
+          <Property Name="SemesterNo" Type="Int32" Nullable="false" />
+          <Property Name="Result" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="StudentProfile" Relationship="Self.FK_StudentProfilesSemester" FromRole="Semester" ToRole="StudentProfiles" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RollNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Qualification" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Designation" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Experiance" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+          <Property Name="DateOfJoin" Type="DateTime" Precision="3" />
+          <Property Name="Department" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Entitlements" Relationship="Self.FK_StaffEntitlement" FromRole="Staffs" ToRole="Entitlements" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_StaffUser" FromRole="Staffs" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK_StateCity" FromRole="State" ToRole="City" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_CountryState" FromRole="State" ToRole="Country" />
+          <NavigationProperty Name="PreviousExamInfoes" Relationship="Self.FK_StatePreviousExamInfo" FromRole="State" ToRole="PreviousExamInfo" />
+          <NavigationProperty Name="StudentProfiles" Relationship="Self.FK_StateStudentProfiles" FromRole="State" ToRole="StudentProfiles" />
+        </EntityType>
+        <EntityType Name="StudentProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Aadnum" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="URNo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Passcode" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EnroledYear" Type="Int32" Nullable="false" />
+          <Property Name="ExpectedYOP" Type="Int32" Nullable="false" />
+          <Property Name="AddrLine1" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="AddrLine2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ApprovedDate" Type="DateTime" Precision="3" />
+          <Property Name="ApprovedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CourseId" Type="Int32" Nullable="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="StateId" Type="Int32" Nullable="false" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="Self.FK_CityStudentProfiles" FromRole="StudentProfiles" ToRole="City" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_CountryStudentProfiles" FromRole="StudentProfiles" ToRole="Country" />
+          <NavigationProperty Name="Course" Relationship="Self.FK_CourseStudentProfiles" FromRole="StudentProfiles" ToRole="Course" />
+          <NavigationProperty Name="PreviousExamInfoes" Relationship="Self.FK_StudentProfilesPreviousExamInfo" FromRole="StudentProfiles" ToRole="PreviousExamInfo" />
+          <NavigationProperty Name="Semesters" Relationship="Self.FK_StudentProfilesSemester" FromRole="StudentProfiles" ToRole="Semester" />
+          <NavigationProperty Name="State" Relationship="Self.FK_StateStudentProfiles" FromRole="StudentProfiles" ToRole="State" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CourseId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Course" Relationship="Self.FK_CourseSubject" FromRole="Subject" ToRole="Course" />
+          <NavigationProperty Name="CurriculumFeedbacks" Relationship="Self.FK_SubjectCurriculumFeedback" FromRole="Subject" ToRole="CurriculumFeedback" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Passcode" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsFirstLogin" Type="Boolean" Nullable="false" />
+          <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StaffId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK_StaffUser" FromRole="Users" ToRole="Staffs" />
+        </EntityType>
+        <Association Name="FK_AppraisalQuestionnairFeedback">
+          <End Role="AppraisalQuestionnaire" Type="Self.AppraisalQuestionnaire" Multiplicity="1" />
+          <End Role="AppraisalFeedback" Type="Self.AppraisalFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppraisalQuestionnaire">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AppraisalFeedback">
+              <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LecturerAppraisalFeedback">
+          <End Role="Lecturer" Type="Self.Lecturer" Multiplicity="1" />
+          <End Role="AppraisalFeedback" Type="Self.AppraisalFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lecturer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AppraisalFeedback">
+              <PropertyRef Name="LecturerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CityStudentProfiles">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="StudentProfiles" Type="Self.StudentProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentProfiles">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateCity">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CountryPreviousExamInfo">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="PreviousExamInfo" Type="Self.PreviousExamInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PreviousExamInfo">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CountryState">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="State" Type="Self.State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="State">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CountryStudentProfiles">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="StudentProfiles" Type="Self.StudentProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentProfiles">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseStudentProfiles">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="StudentProfiles" Type="Self.StudentProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentProfiles">
+              <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseSubject">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="Subject" Type="Self.Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subject">
+              <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurriculumQuestionnairFeedback">
+          <End Role="CurriculumQuestionnaire" Type="Self.CurriculumQuestionnaire" Multiplicity="1" />
+          <End Role="CurriculumFeedback" Type="Self.CurriculumFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CurriculumQuestionnaire">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurriculumFeedback">
+              <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubjectCurriculumFeedback">
+          <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
+          <End Role="CurriculumFeedback" Type="Self.CurriculumFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CurriculumFeedback">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DepartmentLecturer">
+          <End Role="Department" Type="Self.Department" Multiplicity="1" />
+          <End Role="Lecturer" Type="Self.Lecturer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Lecturer">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PermissionEntitlement">
+          <End Role="Permissions" Type="Self.Permission" Multiplicity="1" />
+          <End Role="Entitlements" Type="Self.Entitlement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permissions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Entitlements">
+              <PropertyRef Name="PermissionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffEntitlement">
+          <End Role="Staffs" Type="Self.Staff" Multiplicity="1" />
+          <End Role="Entitlements" Type="Self.Entitlement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staffs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Entitlements">
+              <PropertyRef Name="StaffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StatePreviousExamInfo">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="PreviousExamInfo" Type="Self.PreviousExamInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PreviousExamInfo">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentProfilesPreviousExamInfo">
+          <End Role="StudentProfiles" Type="Self.StudentProfile" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PreviousExamInfo" Type="Self.PreviousExamInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentProfiles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PreviousExamInfo">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentProfilesSemester">
+          <End Role="StudentProfiles" Type="Self.StudentProfile" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Semester" Type="Self.Semester" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentProfiles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Semester">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffUser">
+          <End Role="Staffs" Type="Self.Staff" Multiplicity="1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staffs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="StaffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateStudentProfiles">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="StudentProfiles" Type="Self.StudentProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentProfiles">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NCBPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AppraisalFeedbacks" EntityType="Self.AppraisalFeedback" />
+          <EntitySet Name="AppraisalQuestionnaires" EntityType="Self.AppraisalQuestionnaire" />
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="Countries" EntityType="Self.Country" />
+          <EntitySet Name="Courses" EntityType="Self.Course" />
+          <EntitySet Name="CurriculumFeedbacks" EntityType="Self.CurriculumFeedback" />
+          <EntitySet Name="CurriculumQuestionnaires" EntityType="Self.CurriculumQuestionnaire" />
+          <EntitySet Name="Departments" EntityType="Self.Department" />
+          <EntitySet Name="Entitlements" EntityType="Self.Entitlement" />
+          <EntitySet Name="Lecturers" EntityType="Self.Lecturer" />
+          <EntitySet Name="Permissions" EntityType="Self.Permission" />
+          <EntitySet Name="PreviousExamInfoes" EntityType="Self.PreviousExamInfo" />
+          <EntitySet Name="Semesters" EntityType="Self.Semester" />
+          <EntitySet Name="Staffs" EntityType="Self.Staff" />
+          <EntitySet Name="States" EntityType="Self.State" />
+          <EntitySet Name="StudentProfiles" EntityType="Self.StudentProfile" />
+          <EntitySet Name="Subjects" EntityType="Self.Subject" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_AppraisalQuestionnairFeedback" Association="Self.FK_AppraisalQuestionnairFeedback">
+            <End Role="AppraisalQuestionnaire" EntitySet="AppraisalQuestionnaires" />
+            <End Role="AppraisalFeedback" EntitySet="AppraisalFeedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LecturerAppraisalFeedback" Association="Self.FK_LecturerAppraisalFeedback">
+            <End Role="Lecturer" EntitySet="Lecturers" />
+            <End Role="AppraisalFeedback" EntitySet="AppraisalFeedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CityStudentProfiles" Association="Self.FK_CityStudentProfiles">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="StudentProfiles" EntitySet="StudentProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateCity" Association="Self.FK_StateCity">
+            <End Role="State" EntitySet="States" />
+            <End Role="City" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CountryPreviousExamInfo" Association="Self.FK_CountryPreviousExamInfo">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="PreviousExamInfo" EntitySet="PreviousExamInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CountryState" Association="Self.FK_CountryState">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="State" EntitySet="States" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CountryStudentProfiles" Association="Self.FK_CountryStudentProfiles">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="StudentProfiles" EntitySet="StudentProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseStudentProfiles" Association="Self.FK_CourseStudentProfiles">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="StudentProfiles" EntitySet="StudentProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseSubject" Association="Self.FK_CourseSubject">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="Subject" EntitySet="Subjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurriculumQuestionnairFeedback" Association="Self.FK_CurriculumQuestionnairFeedback">
+            <End Role="CurriculumQuestionnaire" EntitySet="CurriculumQuestionnaires" />
+            <End Role="CurriculumFeedback" EntitySet="CurriculumFeedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubjectCurriculumFeedback" Association="Self.FK_SubjectCurriculumFeedback">
+            <End Role="Subject" EntitySet="Subjects" />
+            <End Role="CurriculumFeedback" EntitySet="CurriculumFeedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DepartmentLecturer" Association="Self.FK_DepartmentLecturer">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Lecturer" EntitySet="Lecturers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PermissionEntitlement" Association="Self.FK_PermissionEntitlement">
+            <End Role="Permissions" EntitySet="Permissions" />
+            <End Role="Entitlements" EntitySet="Entitlements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffEntitlement" Association="Self.FK_StaffEntitlement">
+            <End Role="Staffs" EntitySet="Staffs" />
+            <End Role="Entitlements" EntitySet="Entitlements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StatePreviousExamInfo" Association="Self.FK_StatePreviousExamInfo">
+            <End Role="State" EntitySet="States" />
+            <End Role="PreviousExamInfo" EntitySet="PreviousExamInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentProfilesPreviousExamInfo" Association="Self.FK_StudentProfilesPreviousExamInfo">
+            <End Role="StudentProfiles" EntitySet="StudentProfiles" />
+            <End Role="PreviousExamInfo" EntitySet="PreviousExamInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentProfilesSemester" Association="Self.FK_StudentProfilesSemester">
+            <End Role="StudentProfiles" EntitySet="StudentProfiles" />
+            <End Role="Semester" EntitySet="Semesters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffUser" Association="Self.FK_StaffUser">
+            <End Role="Staffs" EntitySet="Staffs" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateStudentProfiles" Association="Self.FK_StateStudentProfiles">
+            <End Role="State" EntitySet="States" />
+            <End Role="StudentProfiles" EntitySet="StudentProfiles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NCBPModelStoreContainer" CdmEntityContainer="NCBPEntities">
+          <EntitySetMapping Name="AppraisalFeedbacks">
+            <EntityTypeMapping TypeName="NCBPModel.AppraisalFeedback">
+              <MappingFragment StoreEntitySet="AppraisalFeedback">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+                <ScalarProperty Name="LecturerId" ColumnName="LecturerId" />
+                <ScalarProperty Name="Feedback" ColumnName="Feedback" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppraisalQuestionnaires">
+            <EntityTypeMapping TypeName="NCBPModel.AppraisalQuestionnaire">
+              <MappingFragment StoreEntitySet="AppraisalQuestionnaire">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="NCBPModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="NCBPModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="NCBPModel.Course">
+              <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CurriculumFeedbacks">
+            <EntityTypeMapping TypeName="NCBPModel.CurriculumFeedback">
+              <MappingFragment StoreEntitySet="CurriculumFeedback">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+                <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+                <ScalarProperty Name="Feedback" ColumnName="Feedback" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CurriculumQuestionnaires">
+            <EntityTypeMapping TypeName="NCBPModel.CurriculumQuestionnaire">
+              <MappingFragment StoreEntitySet="CurriculumQuestionnaire">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="NCBPModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Entitlements">
+            <EntityTypeMapping TypeName="NCBPModel.Entitlement">
+              <MappingFragment StoreEntitySet="Entitlements">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lecturers">
+            <EntityTypeMapping TypeName="NCBPModel.Lecturer">
+              <MappingFragment StoreEntitySet="Lecturer">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Permissions">
+            <EntityTypeMapping TypeName="NCBPModel.Permission">
+              <MappingFragment StoreEntitySet="Permissions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PreviousExamInfoes">
+            <EntityTypeMapping TypeName="NCBPModel.PreviousExamInfo">
+              <MappingFragment StoreEntitySet="PreviousExamInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="PreviousCourseName" ColumnName="PreviousCourseName" />
+                <ScalarProperty Name="PreviousInstitution" ColumnName="PreviousInstitution" />
+                <ScalarProperty Name="MonthAndYearOfPassing" ColumnName="MonthAndYearOfPassing" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Semesters">
+            <EntityTypeMapping TypeName="NCBPModel.Semester">
+              <MappingFragment StoreEntitySet="Semester">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="SemesterNo" ColumnName="SemesterNo" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staffs">
+            <EntityTypeMapping TypeName="NCBPModel.Staff">
+              <MappingFragment StoreEntitySet="Staffs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="RollNo" ColumnName="RollNo" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Experiance" ColumnName="Experiance" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="DateOfJoin" ColumnName="DateOfJoin" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="NCBPModel.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentProfiles">
+            <EntityTypeMapping TypeName="NCBPModel.StudentProfile">
+              <MappingFragment StoreEntitySet="StudentProfiles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Aadnum" ColumnName="Aadnum" />
+                <ScalarProperty Name="URNo" ColumnName="URNo" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="MName" ColumnName="MName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="MNumber" ColumnName="MNumber" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="Passcode" ColumnName="Passcode" />
+                <ScalarProperty Name="EnroledYear" ColumnName="EnroledYear" />
+                <ScalarProperty Name="ExpectedYOP" ColumnName="ExpectedYOP" />
+                <ScalarProperty Name="AddrLine1" ColumnName="AddrLine1" />
+                <ScalarProperty Name="AddrLine2" ColumnName="AddrLine2" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subjects">
+            <EntityTypeMapping TypeName="NCBPModel.Subject">
+              <MappingFragment StoreEntitySet="Subject">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="NCBPModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Passcode" ColumnName="Passcode" />
+                <ScalarProperty Name="IsFirstLogin" ColumnName="IsFirstLogin" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

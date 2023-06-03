@@ -1,0 +1,202 @@
+﻿@model IEnumerable<NCBPlacementWebsite.Models.StudentProfile>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.URNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DOB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AddrLine1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AddrLine2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostalCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SSLCPercentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SSLCBoard)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NameOfSchool)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SSLCPassingState)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SSLCPassingCOuntry)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SSLCYOP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PUCPercentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PUCBoard)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NameOfClg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PUCPassingState)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PUCPassingCOuntry)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PUCYOP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DegreePercentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Branch)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DegreeYOP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.URNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DOB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddrLine1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddrLine2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostalCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SSLCPercentage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SSLCBoard)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameOfSchool)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SSLCPassingState)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SSLCPassingCOuntry)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SSLCYOP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PUCPercentage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PUCBoard)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameOfClg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PUCPassingState)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PUCPassingCOuntry)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PUCYOP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DegreePercentage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Branch)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DegreeYOP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

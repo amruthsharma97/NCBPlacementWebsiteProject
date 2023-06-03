@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Feedback";
+}
+
+<h2 class="text-primary">Feedback</h2>
+
+<div class="row text-justify" style="font-size:18px">
+
+    <div class="col-md-6">
+        <h3 class="text-primary">Curriculum Evaluation</h3>
+        <p>Your responses to the Evaluation of the Curriculum will help the Faculty of the department concerned to obtain a more precise view about teaching and learning processes. Please enter the appropriate answer for each question.</p>
+        @Html.ActionLink("Give Curriculum Feedback", "Add", "CurriculumFeedback",null, new { @class = "btn btn-primary" })
+    </div>
+    <div class="col-md-6">
+        <h3 class="text-primary">Appraisal By Students</h3>
+        <p>Please give your opinion of the teacher’s ability on the following skills. Give your sincere feedback as it is meant to improve the classroom environment. The ratings are from 1 to 10, here, 1 represents the least and 10 represents maximum. </p>
+        @Html.ActionLink("Give Appraisal Feedback", "Add", "AppraisalFeedback",null, new { @class = "btn btn-primary" })
+    </div>
+</div>

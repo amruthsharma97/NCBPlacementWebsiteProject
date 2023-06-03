@@ -1,0 +1,145 @@
+﻿@model NCBPlacementWebsite.Models.AppraisalFeedbacks
+
+@{
+    ViewBag.Title = "Add";
+}
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal" >
+        <h2 class="text-primary">Appraisal By Students</h2>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <fieldset style="display: block;  margin-right: 2px;  padding-top: 0.35em;  padding-bottom: 0.625em;padding-right: 0.75em;  border: 2px groove;">
+            <h4 class="text-primary" style="  padding-left: 0.75em;">Lecturer Information</h4><hr />
+            <div class="form-group">
+                @Html.LabelFor(model => model.Branch, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Branch, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Branch, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.LuctName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.LuctName, new SelectList(ViewBag.lecturer, "Value", "Text"), "--Select Lecturer--", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.LuctName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            </fieldset>
+        <fieldset style="display: block;  margin-right: 2px;  padding-top: 0.35em;  padding-bottom: 0.625em;padding-right: 0.75em;  border: 2px groove;">
+            <h4 class="text-primary" style="  padding-left: 0.75em;">Batch And Year</h4><hr />
+            <div class="form-group">
+                @Html.LabelFor(model => model.SYear, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.SYear, new SelectList(ViewBag.syop, "Value", "Text"), "--Select Year--", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.SYear, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.EYear, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.EYear, new SelectList(ViewBag.eyop, "Value", "Text"), "--Select Year--", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.EYear, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            </fieldset>
+        <fieldset style="display: block;  margin-right: 2px;  padding-top: 0.35em;  padding-bottom: 0.625em;padding-right: 0.75em;  border: 2px groove;">
+            <h4 class="text-primary" style="  padding-left: 0.75em;">Questionnaire</h4><hr />
+            <div class="form-group ">
+                @Html.LabelFor(model => model.Q1, htmlAttributes: new { @class = "col-md-offset-1 col-md-6" })
+                <div class="col-md-5 ">
+                    @Html.DropDownListFor(model => model.Q1, new SelectList(ViewBag.rating, "Value", "Text"), "--Select One--", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Q1, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Q2, htmlAttributes: new { @class = "col-md-offset-1 col-md-6" })
+                <div class="col-md-5">
+                    @Html.DropDownListFor(model => model.Q2, new SelectList(ViewBag.rating, "Value", "Text"), "--Select One--", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Q2, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Q3, htmlAttributes: new { @class = "col-md-offset-1 col-md-6" })
+                <div class="col-md-5">
+                    @Html.DropDownListFor(model => model.Q3, new SelectList(ViewBag.rating, "Value", "Text"), "--Select One--", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Q3, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Q4, htmlAttributes: new { @class = "col-md-offset-1 col-md-6" })
+                <div class="col-md-4">
+                    @Html.DropDownListFor(model => model.Q4, new SelectList(ViewBag.rating, "Value", "Text"), "--Select One--", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Q4, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Q5, htmlAttributes: new { @class = "col-md-offset-1 col-md-6" })
+                <div class="col-md-5">
+                    @Html.DropDownListFor(model => model.Q5, new SelectList(ViewBag.rating, "Value", "Text"), "--Select One--", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Q5, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Q6, htmlAttributes: new { @class = "col-md-offset-1 col-md-6" })
+                <div class="col-md-5">
+                    @Html.DropDownListFor(model => model.Q6, new SelectList(ViewBag.rating, "Value", "Text"), "--Select One--", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Q6, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Q7, htmlAttributes: new { @class = "col-md-offset-1 col-md-6" })
+                <div class="col-md-5">
+                    @Html.DropDownListFor(model => model.Q7, new SelectList(ViewBag.rating, "Value", "Text"), "--Select One--", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Q7, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Q8, htmlAttributes: new { @class = "col-md-offset-1 col-md-6" })
+                <div class="col-md-5">
+                    @Html.DropDownListFor(model => model.Q8, new SelectList(ViewBag.rating, "Value", "Text"), "--Select One--", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Q8, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Q9, htmlAttributes: new { @class = "col-md-offset-1 col-md-6" })
+                <div class="col-md-5">
+                    @Html.DropDownListFor(model => model.Q9, new SelectList(ViewBag.rating, "Value", "Text"), "--Select One--", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Q9, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Q10, htmlAttributes: new { @class = "col-md-offset-1 col-md-6" })
+                <div class="col-md-5">
+                    @Html.DropDownListFor(model => model.Q10, new SelectList(ViewBag.rating, "Value", "Text"), "--Select One--", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Q10, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+            </fieldset>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back", "Feedback", "Home")
+</div>

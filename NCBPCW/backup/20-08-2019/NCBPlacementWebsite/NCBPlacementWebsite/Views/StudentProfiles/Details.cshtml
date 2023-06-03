@@ -1,0 +1,251 @@
+﻿@model NCBPlacementWebsite.Models.StudentProfile
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>StudentProfile</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.URNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.URNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddrLine1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddrLine1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddrLine2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddrLine2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostalCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostalCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SSLCPercentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SSLCPercentage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SSLCBoard)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SSLCBoard)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NameOfSchool)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameOfSchool)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SSLCPassingState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SSLCPassingState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SSLCPassingCOuntry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SSLCPassingCOuntry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SSLCYOP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SSLCYOP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PUCPercentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PUCPercentage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PUCBoard)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PUCBoard)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NameOfClg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameOfClg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PUCPassingState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PUCPassingState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PUCPassingCOuntry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PUCPassingCOuntry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PUCYOP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PUCYOP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DegreePercentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DegreePercentage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Branch)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Branch)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DegreeYOP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DegreeYOP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

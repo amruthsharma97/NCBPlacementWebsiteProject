@@ -1,0 +1,100 @@
+﻿@model NCBPlacementWebsite.Models.LoginViewModel
+@{
+    ViewBag.Title = "Home Page";
+    //<p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    //<p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+}
+
+
+    <h1 style="font-weight:800;font-size:50px;text-align:center" class="text-primary">The National College Placement Cell</h1>
+
+<h4 class="text-danger">@ViewBag.Profileerr</h4>
+@{
+    if (!User.Identity.IsAuthenticated)
+    {
+        <div class="row" style="border:2px solid #FF5E33;padding-top:20px">
+
+            <section id="loginForm">
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-inline", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                
+    
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.Email, new { @class = " control-label col-md-2" })
+                        <div class="col-md-offset-1 col-md-9">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                        <p class="col-md-offset-6">
+                            @Html.ActionLink("Register as a new user", "Register", "Account")
+                        </p>
+                    </div>
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.Password, new { @class = " control-label col-md-2" })
+                        <div class="col-md-offset-1 col-md-9">
+
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+                            <a onclick="passalert()" ><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                            
+                        </div>
+
+                        <p class="col-md-offset-6">
+                            @Html.ActionLink("Forgot your password?", "ForgotPassword", "Account")
+                        </p>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <div>
+                            <div class="checkbox col-md-5">
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe)
+                            </div>
+                            <div class="col-md-offset-2 col-md-5"><input type="submit" value="Log in" class="btn btn-primary" /></div>
+
+                        </div>
+                    </div>
+
+                    //Enable this once you have account confirmation enabled for password reset functionality
+
+                }
+            </section>
+
+        </div>
+    }
+}
+    
+<br />
+
+<div class="text-justify" style="font-size:18px">
+    <h3 class="text-primary">About.</h3>
+    <p >
+        &emsp;The placement and training department is headed by Prof. G Satish Kumar, Department of Computer Science and Prof. Vijaya Ragavan H G, Department of Computer Science. The cell is provided with all the facilities to enable the deserving students of the institution to get competitive placements. Placement cell has been arranging training in aptitude test and soft skills for students before attending the campus recruitment programme.
+    </p>
+    <p>
+        &emsp;At The NATIONAL COLLEGE BASAVANAGUDI we provide the students with application-oriented knowledge. This knowledge exposes them to the challenges and issues they will need to address later. The college also offers support services for start – up companies.
+    </p>
+</div>
+<br />
+<div style="height:208px;">
+    <marquee behavior="scroll" direction="left">
+        <img src="~/Scroll Images/IBM_logo.png" width="350" height="164" style="height: 204px;padding-left: 50px; padding-right: 50px;padding-top: 20px; padding-bottom: 20px;" />
+        <img src="~/Scroll Images/Wipro_Logo.png" width="350" height="164" style="height: 204px;padding-left: 50px; padding-right: 50px;padding-top: 20px; padding-bottom: 20px;" />
+        <img src="~/Scroll Images/infosys-logo-PNG.png" width="350" height="164" style="height: 204px;padding-left: 50px; padding-right: 50px;padding-top: 20px; padding-bottom: 20px;" />
+        <img src="~/Scroll Images/LTI_Lets_solve.png" width="350" height="164" style="height: 204px;padding-left: 50px; padding-right: 50px;padding-top: 20px; padding-bottom: 20px;" />
+        <img src="~/Scroll Images/Deloitte_Logo.png" width="350" height="164" style="height: 204px;padding-left: 50px; padding-right: 50px;padding-top: 20px; padding-bottom: 20px;" />
+    </marquee>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        
+        
+    </div>
+    <div class="col-md-6">
+        
+    </div>
+    
+</div>
